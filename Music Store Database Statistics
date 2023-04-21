@@ -1,0 +1,52 @@
+-- Create a music store database
+
+CREATE TABLE music_store (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, family TEXT, year_made INTEGER, price INTEGER, quantity INTEGER, sold_2022 INTEGER);
+
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("clarinet", "woodwinds", 2017, 80, 14, 347);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("piccolo", "woodwinds", 2017, 65, 17, 302);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("flute", "woodwinds", 2016, 75, 16, 316);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("oboe", "woodwinds", 2015, 85, 14, 295);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("bassoon", "woodwinds", 2013, 95, 13, 132);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("saxophone", "woodwinds", 2017, 120, 21, 415);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("trumpet", "brass", 2017, 110, 9, 402);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("trombone", "brass", 2018, 105, 8, 231);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("tuba", "brass", 2020, 110, 8, 187);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("violin", "strings", 2019, 145, 7, 256);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("cello", "strings", 2018, 155, 5, 132);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("viola", "strings", 2015, 135, 12, 97);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("snare", "percussion", 2017, 55, 24, 547);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("kick", "percussion", 2016, 35, 22, 491);
+INSERT INTO music_store (name, family, year_made, price, quantity, sold_2022) VALUES ("tambourine", "percussion", 2013, 20, 27, 249);
+
+-- Order instruments by price, from highest to lowest
+SELECT * 
+FROM music_store 
+ORDER BY price DESC;
+
+-- Show average year of when instruments were made
+SELECT ROUND(AVG(year_made), 1) AS average_year_made 
+FROM music_store;
+
+-- Show total number of instruments, grouped by family
+SELECT family, SUM(quantity) AS total_instruments 
+FROM music_store 
+GROUP BY family;
+
+-- Show total number of instruments sold in 2022, grouped by family
+SELECT family, SUM(sold_2022) AS instruments_sold_2022 
+FROM music_store 
+GROUP BY family;
+
+-- Show total amount made by each instrument in 2022
+SELECT name, price*sold_2022 AS amount_profit_2022 
+FROM music_store;
+
+-- Show average price of woodwind instruments
+SELECT AVG(price) AS average_woodwind_price 
+FROM music_store 
+WHERE family = "woodwinds";
+
+-- Show top 3 most purchased instruments in 2022
+SELECT * FROM music_store 
+ORDER BY sold_2022 DESC 
+LIMIT 3;
