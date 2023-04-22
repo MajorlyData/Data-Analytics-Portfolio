@@ -1,0 +1,67 @@
+-- Create two tables:
+-- One that lists the top 10 most popular singers in the world as of April 14, 2022
+-- One that lists their YouTube subscriber count and Instagram follower count
+
+CREATE TABLE singers (ranking INTEGER PRIMARY KEY, name Text, genre Text, age INTEGER);
+
+INSERT INTO singers VALUES (1, "Ed Sheeran", "Pop", 31);
+INSERT INTO singers VALUES (2, "Billie Eilish", "Pop", 20);
+INSERT INTO singers VALUES (3, "Ariana Grande", "Pop", 28);
+INSERT INTO singers VALUES (4, "The Weekend", "R&B", 32);
+INSERT INTO singers VALUES (5, "Taylor Swift", "Country Pop", 32);
+INSERT INTO singers VALUES (6, "Adele", "Pop Soul", 33);
+INSERT INTO singers VALUES (7, "Justin Bieber", "Pop", 28);
+INSERT INTO singers VALUES (8, "Dua Lipa", "Pop", 26);
+INSERT INTO singers VALUES (9, "Beyonce", "R&B", 40);
+INSERT INTO singers VALUES (10, "Lady Gaga", "Pop", 36);
+
+-- YouTube subscribers and Instagram followers counted in the millions
+CREATE TABLE following (ranking INTEGER PRIMARY KEY, youtube_subscribers REAL, instagram_followers REAL);
+
+INSERT INTO following VALUES (1, 51.5, 37.8);
+INSERT INTO following VALUES (2, 45.2, 102);
+INSERT INTO following VALUES (3, 51.1, 304);
+INSERT INTO following VALUES (4, 27.8, 37.8);
+INSERT INTO following VALUES (5, 46.1, 206);
+INSERT INTO following VALUES (6, 28.1, 49.8);
+INSERT INTO following VALUES (7, 68.3, 229);
+INSERT INTO following VALUES (8, 20.4, 82.2);
+INSERT INTO following VALUES (9, 24.4, 249);
+INSERT INTO following VALUES (10, 21.3, 51.1);
+
+-- Show how many singers are in each genre and the average age of that genre
+SELECT genre, COUNT(genre) AS total_singers_in_genre, ROUND(AVG(age), 0) AS average_age_in_genre 
+FROM singers 
+GROUP BY genre 
+ORDER BY total_singers_in_genre;
+
+-- Show the genre that appears the most in the top 10 list using a CTE
+WITH CTE_genre_count AS 
+(SELECT genre, COUNT(genre) AS count_genre 
+FROM singers 
+GROUP BY genre)
+SELECT genre AS most_common_genre, MAX(count_genre) AS genre_count 
+FROM CTE_genre_count;
+
+-- Show each artist's YouTuber subscriber count and Instagram follower count using JOIN
+SELECT sing.name, foll.youtube_subscribers AS youtube_subscribers_millions, foll.instagram_followers AS instagram_followers_millions 
+FROM singers sing 
+JOIN following foll 
+ON foll.ranking = sing.ranking 
+ORDER BY instagram_followers_millions DESC;
+
+-- Show every artist that has more than 30 million YouTube subscribers
+SELECT sing.name, foll.youtube_subscribers AS youtube_subscribers_over_30million 
+FROM singers sing 
+JOIN following foll 
+ON foll.ranking = sing.ranking 
+WHERE youtube_subscribers_over_30million > 30 
+ORDER BY youtube_subscribers_over_30million DESC;
+
+-- Show every artist that has more than 40 million Instagram followers who also sings some sort of pop genre
+SELECT sing.name, foll.instagram_followers AS instagram_followers_millions 
+FROM singers sing 
+JOIN following foll 
+ON foll.ranking = sing.ranking 
+WHERE instagram_followers_millions > 40 AND (sing.genre LIKE "pop%" OR sing.genre LIKE "%pop") 
+ORDER BY instagram_followers_millions DESC;
