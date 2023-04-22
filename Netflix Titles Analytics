@@ -1,0 +1,34 @@
+-- Use PostgreSQL to pull various information from a database called "Netflix_Info"
+
+-- Show some general information about the contents of the database
+SELECT people.show_id, people.director, titles.title, titles.type, titles.release_year 
+FROM "Netflix_Info"."netflix_people" people
+JOIN "Netflix_Info"."netflix_titles_info" titles
+ON titles.show_id = people.show_id;
+
+-- Show how many movie titles exist in the database
+SELECT COUNT(type) 
+FROM "Netflix_Info"."netflix_titles_info" 
+WHERE type = 'Movie';
+
+-- Show most recent addition to the database and whether it was a tv show or movie using a subquery
+SELECT title, type, date_added 
+FROM "Netflix_Info"."netflix_titles_info"
+WHERE DATE(date_added) = (SELECT MAX(DATE(date_added)) FROM "Netflix_Info"."netflix_titles_info");
+
+-- List all of the movies and tv shows in alphabetical order
+SELECT title 
+FROM "Netflix_Info"."netflix_titles_info" 
+ORDER BY title ASC;
+
+-- Find the director for the movie Jaws
+SELECT people.director, titles.title 
+FROM "Netflix_Info"."netflix_people" people 
+JOIN "Netflix_Info"."netflix_titles_info" titles
+ON titles.show_id = people.show_id
+WHERE titles.title = 'Jaws';
+
+-- Show the oldest movie in the database and the year it was made
+SELECT title, release_year 
+FROM "Netflix_Info"."netflix_titles_info" 
+WHERE type = 'Movie' AND release_year = (SELECT MIN(release_year) FROM "Netflix_Info"."netflix_titles_info" WHERE type = 'Movie');
