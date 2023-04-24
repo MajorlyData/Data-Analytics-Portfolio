@@ -1,0 +1,65 @@
+-- For this project, I downloaded Spotify data from Kaggle
+-- I then created a table within my database to insert the Spotify data into
+-- Finally, I performed analytics on the data using SQL
+
+-- First, I created the table itself within the database
+CREATE TABLE Sales_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness decimal(8,7) NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL );
+
+-- Then I inserted the Spotify Data CSV into the table
+-- Next, I performed exploratory data analysis using the following SQL
+
+-- Show the average popularity, danceability and energy of each artist
+SELECT artist_name, avg(popularity), avg(danceability), avg(energy) 
+FROM Sales_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY avg(popularity) DESC;
+
+-- Show the top 10 tracks and their artist by popularity
+SELECT track_name, artist_name, popularity 
+FROM Sales_DB.Spotifydata 
+ORDER BY popularity DESC 
+LIMIT 10;
+-- Show which artist released the longest song and which released the shortest song
+SELECT artist_name, track_name, duration_ms 
+FROM Sales_DB.Spotifydata 
+WHERE duration_ms = (SELECT max(duration_ms) FROM Sales_DB.Spotifydata) OR duration_ms = (SELECT min(duration_ms) FROM Sales_DB.Spotifydata);
+
+-- Show which songs were louder than -5 dB and also had a popularity of over 90
+SELECT track_name, loudness, popularity 
+FROM Sales_DB.Spotifydata 
+WHERE loudness > -5 AND popularity > 90
+ORDER BY loudness DESC;
+
+-- Show how many songs had a tempo of more than 130 and a danceability over 0.700
+SELECT track_name, tempo, danceability, COUNT(*) over() AS track_count 
+FROM Sales_DB.Spotifydata 
+WHERE tempo > 130 AND danceability > 0.700 
+ORDER BY danceability DESC;
+
+-- Calculate the average popularity for artists and then for every artist with an average popularity above 90, show their name, average popularity and label them as a "Top Star"
+WITH CTE_avg_pop AS 
+(SELECT artist_name, avg(popularity) AS avg_popularity 
+ FROM Spotifydata
+ GROUP BY artist_name)
+SELECT artist_name, avg_popularity, 'Top Star' AS tag 
+FROM CTE_avg_pop 
+WHERE avg_popularity >= 90
+ORDER BY avg_popularity DESC;
