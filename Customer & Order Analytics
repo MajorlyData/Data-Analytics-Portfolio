@@ -1,0 +1,42 @@
+-- In the SQL below, I am querying a database with multiple tables to quantify statistics about customer and order data
+
+-- Show how many orders were placed in January
+SELECT COUNT(orderID)
+FROM Sales_DB.JanSales
+WHERE length(orderID) = 6 AND orderID <> 'Order ID';
+
+-- Show how many of the above orders were for an iPhone
+SELECT COUNT(orderID)
+FROM Sales_DB.JanSales
+WHERE length(orderID) = 6 AND orderID <> 'Order ID' AND Product = 'iPhone';
+
+-- Show customer account numbers for all orders placed in February
+SELECT DISTINCT cust.acctnum
+FROM Sales_DB.customers cust
+JOIN Sales_DB.FebSales feb_sales
+ON feb_sales.orderID = cust.order_id
+WHERE length(feb_sales.orderID) = 6 AND feb_sales.orderID <> 'Order ID';
+
+-- Show cheapest product sold in January and its price
+SELECT DISTINCT Product, price
+FROM Sales_DB.JanSales  
+WHERE price = (SELECT min(price) FROM Sales_DB.JanSales);
+
+-- Show total revenue for each product sold in January
+SELECT Product, SUM(Quantity) * price AS revenue
+FROM Sales_DB.JanSales
+WHERE Product <> '' AND Product <> 'Product'
+GROUP BY Product;
+
+-- Show which products were sold in February at 548 Lincoln St, how many were sold and what the total revenue was
+SELECT Product, SUM(Quantity) AS Quantity, SUM(Quantity) * price AS revenue
+FROM Sales_DB.FebSales
+WHERE location = '548 Lincoln St, Seattle, WA 98101'
+GROUP BY product;
+
+-- Show how many customers ordered more than 2 products at a time in February and what the average amount spent was for those customers
+SELECT COUNT(DISTINCT cust.acctnum), AVG(feb_sales.Quantity * feb_sales.price)
+FROM Sales_DB.FebSales feb_sales
+LEFT JOIN Sales_DB.customers cust
+ON cust.order_id = feb_sales.orderID
+WHERE feb_sales.Quantity > 2 AND length(feb_sales.orderID) = 6 AND feb_sales.orderID <> 'Order ID';
