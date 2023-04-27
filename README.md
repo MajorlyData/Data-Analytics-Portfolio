@@ -24,3 +24,6 @@ Functions: Aggregate functions, JOINs, CTEs, Window functions (partition by, ran
 Skills: Data Comprehension, Data Visualization, Connecting and Managing Data, Visual Data Analysis
 
 Functionalities: Charts/Graphs, Calculated Fields, Dashboard Creation/Formatting/Detailing, Building Visualizations
+| **Project Name** | **Description** | **Tableau Dashboard** |
+|------------------|-----------------|-----------------------|
+| World COVID Data | In this dashboard, I utilized world COVID data to analyze and gather information on vaccination rates throughout various regions. I visualized a couple of different important metrics to showcase trends and observations within the data itself. | [Link](https://public.tableau.com/app/profile/majorly.data/viz/WorldCOVIDData_16825975396150/WorldCOVIDData)
