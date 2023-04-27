@@ -2,7 +2,7 @@
 
 Welcome to the SQL portion of my portfolio!
 
-This code repository contains examples of SQL I've written that showcases a variety of use cases and real world examples. Please feel free to check out the projects within this folder, and if you have any questions or would like to discuss anything further, don't hesitate to send me an email: majorlydata@gmail.com. I'd be happy to go through anything in more depth!
+This code repository contains examples of SQL I've written that showcases a variety of use cases and real world examples. Projects range from looking at Superbowl statistics to store analytics to customer and order information, and each project utilizes vital SQL functionalities to achieve the goal of analyzing data in efficient and meaningful ways.
 
 ## Highlighted Projects - Extended Descriptions
 
