@@ -5,7 +5,10 @@ Welcome to my Data Analytics Portfolio! Feel free to take a look around and reac
 ## Table of Contents
 + [SQL](https://github.com/MajorlyData/Data-Analytics-Portfolio/tree/main/SQL)
 
-# SQL - Highlighted Projects
+# SQL
+Skills: Data Gathering, Data Cleanup, Querying Data, Exploratory Data Analysis
+
+Functions: Aggregate functions, JOINs, CTEs, Window functions (partition by, rank(), etc), CASE statements, subqueries, nested subqueries, string manipulation, LIKE filtering
 | **Project Name**                                                                                                                         | **Description**                                                                                                                                                            | **SQL Functions**                                     |
 |------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
 | [Customer & Order Analytics](https://github.com/MajorlyData/Data-Analytics-Portfolio/blob/main/SQL/Customer%20%26%20Order%20Analytics)   | I analyzed information about customer and order data, including connecting tables to delve into associated info and looking into aggregating data points.                  | JOIN, Subquery, Aggregate Functions                   |
