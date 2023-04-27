@@ -4,6 +4,7 @@ Welcome to my Data Analytics Portfolio! Feel free to take a look around and reac
 
 ## Table of Contents
 + [SQL](#sql)
++ [Tableau](#tableau)
 
 # SQL
 Skills: Data Gathering, Data Cleanup, Querying Data, Exploratory Data Analysis
