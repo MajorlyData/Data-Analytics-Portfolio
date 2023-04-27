@@ -1,6 +1,6 @@
 -- Determine statistics about bike lanes using various SQL methods and functionalities
 
--- Create the table
+-- Create the table below
 CREATE TABLE BikeLane_DB.CityBikeLanes (
 id integer primary key,
 year_installed year not null,
