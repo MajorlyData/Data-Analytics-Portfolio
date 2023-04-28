@@ -24,6 +24,8 @@ Functions: Aggregate functions, JOINs, CTEs, Window functions (partition by, ran
 Skills: Data Comprehension, Data Visualization, Connecting and Managing Data, Visual Data Analysis
 
 Functionalities: Charts/Graphs, Calculated Fields, Dashboard Creation/Formatting/Detailing, Building Visualizations
+
+## Highlighted Dashboards - [Full Tableau Portfolio](https://public.tableau.com/app/profile/majorly.data)
 | **Project Name** | **Description** | **Tableau Dashboard** |
 |------------------|-----------------|-----------------------|
 | Executive Overview - Profitability | In this dashboard, I analyzed data regarding sales, order information and profit margins by visualizing important metrics and key performance indicators, along with embedding an interactive map to narrow down the resulting data by state, date and profit ratio. | [Link](https://public.tableau.com/app/profile/majorly.data/viz/ExecutiveOverview-Profitability_16827109671440/ExecutiveOverview)
