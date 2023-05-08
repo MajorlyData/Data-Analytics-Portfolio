@@ -7,6 +7,7 @@ Feel free to take a look around and reach out via email if you have any question
 ## Table of Contents
 + [SQL](#sql)
 + [Tableau](#tableau)
++ [Python](#python)
 
 # SQL
 Skills: Data Gathering, Data Cleanup, Querying Data, Exploratory Data Analysis
