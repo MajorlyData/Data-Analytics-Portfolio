@@ -31,3 +31,13 @@ Functionalities: Charts/Graphs, Calculated Fields, Dashboard Creation/Formatting
 | Executive Overview - Profitability | In this dashboard, I analyzed data regarding sales, order information and profit margins by visualizing important metrics and key performance indicators, along with embedding an interactive map to narrow down the resulting data by state, date and profit ratio. | [Link](https://public.tableau.com/app/profile/majorly.data/viz/ExecutiveOverview-Profitability_16827109671440/ExecutiveOverview)
 | World COVID Data | In this dashboard, I utilized world COVID data to analyze and gather information on vaccination rates throughout various regions. I visualized a couple of different important metrics to showcase trends and observations within the data itself. | [Link](https://public.tableau.com/app/profile/majorly.data/viz/WorldCOVIDData_16825975396150/WorldCOVIDData) 
 | Sales Recap Feb. 2019 | This dashboard looks at sales data and information within a product database during the month of February in 2019. I utilized a map of the United States to create an interactive experience that lets you view revenue, order info and product details for each state, both on a monthly and daily scope index. | [Link](https://public.tableau.com/app/profile/majorly.data/viz/SalesRecapFeb_2019/ProductOrderAnalysis)
+
+# Python
+Skills: Web Scraping, Data Gathering, Data Cleanup, Data Visualization and Analysis
+
+Libraries: Pandas, BeautifulSoup, Requests, CSV
+
+## Highlighted Projects - [Full Python Portfolio](https://github.com/MajorlyData/Data-Analytics-Portfolio/tree/main/Python)
+| **Project Name** | **Libraries Used** | **Description** |
+|------------------|-----------------|-----------------------|
+| [IMDB Web Scraping - Top 250 Movies](https://github.com/MajorlyData/Data-Analytics-Portfolio/blob/main/Python/IMDB_Scraping.ipynb) | BeautifulSoup, Requests, CSV | I scraped the top 250 movies from IMDB and gathered important metrics, such as ranking and name of movie, to format into a csv file for further analysis.
