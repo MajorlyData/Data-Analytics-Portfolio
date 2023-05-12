@@ -8,9 +8,11 @@ This folder contains examples of Python code I've researched, written and edited
 + Anaconda
 + Jupyter Notebooks
 + Libraries:
-    + Requests
     + Pandas
+    + Matplotlib
+    + Numpy
     + BeautifulSoup
+    + Requests
     + CSV
 
 ## Highlighted Projects
