@@ -36,7 +36,7 @@ Functionalities: Charts/Graphs, Calculated Fields, Dashboard Creation/Formatting
 # Python
 Skills: Web Scraping, Data Gathering, Data Cleanup, Data Visualization and Analysis
 
-Libraries: Pandas, BeautifulSoup, Requests, CSV
+Libraries: Pandas, BeautifulSoup, Numpy, Matplotlib, Requests, CSV
 
 ## Highlighted Projects - [Full Python Portfolio](https://github.com/MajorlyData/Data-Analytics-Portfolio/tree/main/Python)
 | **Project Name** | **Libraries Used** | **Description** |
