@@ -42,3 +42,13 @@ Libraries: Pandas, BeautifulSoup, Numpy, Matplotlib, Requests, CSV
 | **Project Name** | **Libraries Used** | **Description** |
 |------------------|-----------------|-----------------------|
 | [IMDB Web Scraping - Top 250 Movies](https://github.com/MajorlyData/Data-Analytics-Portfolio/blob/main/Python/IMDB_Scraping.ipynb) | BeautifulSoup, Requests, CSV | I scraped the top 250 movies from IMDB and gathered important metrics, such as ranking and name of movie, to format into a csv file for further analysis.
+
+# Excel
+Skills: Pivot Tables, Chart Visualization, Dynamic Data Integration, Interactive Dashboard Functionality
+
+Excel Tools: Functions (IF, IFS, COUNTA, SUM, INDEX), Wireframing, Timelines/Slicers
+
+## Projects - [Excel Portfolio](https://www.canva.com/design/DAFiupK05Fk/K5nZtrBbzaRVY26do9zduQ/edit?utm_content=DAFiupK05Fk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+| **Project Name** | **Goal** | **Excel Functionalities Used** |
+|------------------|----------|--------------------------------|
+| Superstore Sales Analysis Dashboard | Visualize a variety of important metrics and KPIs to quantify sales data from a superstore between the years 2020-2021, analyzing stats such as profit, growth and trends, using interactive charts and filters to display data in easy-to-read mediums. | Chart Visualization, Pivot Table Interaction, Dashboard Wireframing |
