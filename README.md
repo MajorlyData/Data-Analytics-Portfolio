@@ -8,6 +8,7 @@ Feel free to take a look around and reach out via email if you have any question
 + [SQL](#sql)
 + [Tableau](#tableau)
 + [Python](#python)
++ [Excel](#excel)
 
 # SQL
 Skills: Data Gathering, Data Cleanup, Querying Data, Exploratory Data Analysis
@@ -51,4 +52,6 @@ Excel Tools: Functions (IF, IFS, COUNTA, SUM, INDEX), Wireframing, Timelines/Sli
 ## Projects - [Excel Portfolio](https://www.canva.com/design/DAFiupK05Fk/K5nZtrBbzaRVY26do9zduQ/edit?utm_content=DAFiupK05Fk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 | **Project Name** | **Goal** | **Excel Functionalities Used** |
 |------------------|----------|--------------------------------|
-| Superstore Sales Analysis Dashboard | Visualize a variety of important metrics and KPIs to quantify sales data from a superstore between the years 2020-2021, analyzing stats such as profit, growth and trends, using interactive charts and filters to display data in easy-to-read mediums. | Chart Visualization, Pivot Table Interaction, Dashboard Wireframing |
+| Superstore Sales Analysis Dashboard | Visualize a variety of important metrics and KPIs to quantify sales data from a superstore between the years 2020-2021, analyzing stats such as profit, growth and trends, using interactive charts and filters to display data in easy-to-read mediums. | Chart Visualization, Pivot Table Interaction, Dashboard Wireframing 
+| Soda Retailer Sales Dashboard | Visualize soda retailer sales data in an interactive dashboard, quantifying and analyzing stats such as total sales, operating profit and units sold, as well as displaying and filtering information by state, brand, retailer and region. | Interactive Dashboard Functionality, Dynamic Value Integration 
+| Sales Dashboard - Europe 2022 | Quantify sales data for a product-based company throughout countries in Europe between the years 2021 and 2022, with an emphasis on analyzing the latter to display key metrics such as profit realization and customer satisfaction rates. | Functions (SUM, RAND, TEXT), Interactive Button Navigation |
