@@ -43,6 +43,7 @@ Libraries: Pandas, BeautifulSoup, Numpy, Matplotlib, Requests, CSV
 | **Project Name** | **Libraries Used** | **Description** |
 |------------------|-----------------|-----------------------|
 | [IMDB Web Scraping - Top 250 Movies](https://github.com/MajorlyData/Data-Analytics-Portfolio/blob/main/Python/IMDB_Scraping.ipynb) | BeautifulSoup, Requests, CSV | I scraped the top 250 movies from IMDB and gathered important metrics, such as ranking and name of movie, to format into a csv file for further analysis.
+| [Games Sales Analysis and Visualization](https://github.com/MajorlyData/Data-Analytics-Portfolio/blob/main/Python/Games_Sales_Analysis.ipynb) | Pandas, Matplotlib, Seaborn, Numpy | I performed ETL on a dataset containing video game sales information, in conjunction with analyzing, grouping and visualizing the data to explore important metrics and KPIs.
 
 # Excel
 Skills: Pivot Tables, Chart Visualization, Dynamic Data Integration, Interactive Dashboard Functionality
