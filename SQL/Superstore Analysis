@@ -1,0 +1,23 @@
+-- I am analyzing a database containing information on superstore inventory data to draw important insights into item info.
+
+-- Order the items by price (high to low)
+SELECT item_name as 'Item Name', 
+CONCAT('$', price) as 'Price (High to Low)' 
+FROM superstore
+ORDER BY price DESC;
+
+-- Find the average price of all items in the Electronics category
+SELECT CONCAT('$', ROUND(AVG(price), 2)) as 'Average Price of Electronics'
+FROM superstore
+WHERE category == 'Electronics';
+
+-- Find the maximum price for the items in the Kitchen Supplies category
+SELECT CONCAT('$', MAX(price)) as 'Maximum Price of Kitchen Supplies'
+FROM superstore
+WHERE category == 'Kitchen Supplies';
+
+-- Show how many items are in each category
+SELECT category as 'Category',
+COUNT(category) as 'Number of Items'
+FROM superstore
+GROUP BY category;
