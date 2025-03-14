@@ -1,0 +1,50 @@
+-- This analysis uses a table named fortune_companies to pull insights into industry data and information surrounding companies in various sectors.
+
+-- Explore and understand how this table and data look like.
+SELECT *
+FROM fortune_companies;
+
+-- Order the companies from most employees to least employees.
+SELECT company_name,
+employees
+FROM fortune_companies
+ORDER BY employees DESC;
+
+-- Get the average employee tenure of each industry.
+SELECT industry,
+ROUND(AVG(avg_employee_tenure), 1) AS avg_industry_tenure
+FROM fortune_companies
+GROUP BY industry;
+
+-- Get the sum of the revenue for each industry.
+SELECT industry,
+ROUND(SUM(revenue), 1) AS total_revenue
+FROM fortune_companies
+GROUP BY industry;
+
+-- Get the average employee tenure for different blocks of paid time off days.
+-- Blocks: 0-14, 15-19, 20+
+SELECT
+CASE
+	WHEN paid_time_off_days >= 20 THEN '20+ PTO Days'
+  WHEN paid_time_off_days >= 15 THEN '15-19 PTO Days'
+  ELSE '14 or Less PTO Days'
+END AS pto_days,
+ROUND(AVG(avg_employee_tenure), 1) AS avg_industry_tenure
+FROM fortune_companies
+GROUP BY pto_days;
+
+-- Get the average revenue of industries with more than 2000 average employees.
+SELECT industry,
+AVG(employees) as avg_employees,
+ROUND(AVG(revenue), 1) as avg_revenue
+FROM fortune_companies
+GROUP BY industry
+HAVING AVG(employees) > 2000
+ORDER BY avg_revenue DESC;
+
+-- Get the companies who offer healthcare benefits and whose maternity leave weeks are greater than 12.
+SELECT company_name,
+maternity_leave_weeks
+FROM fortune_companies
+WHERE healthcare_benefits = 1 AND maternity_leave_weeks > 12;
