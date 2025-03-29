@@ -1,0 +1,57 @@
+-- Using SQLite, analyze a database containing information about a Climate Conference.
+
+-- Get a snippet of each of the tables within the database.
+SELECT * FROM vips LIMIT 5;
+SELECT * FROM reservations LIMIT 5;
+SELECT * FROM events LIMIT 5;
+SELECT * FROM hotels LIMIT 5;
+
+-- List the amount of members in each association type.
+SELECT assoc_type,
+COUNT(member_id) AS 'number_of_members'
+FROM vips
+GROUP BY assoc_type;
+
+-- List all the event types and how many events are in each type.
+SELECT event_type,
+COUNT (event_id) AS 'number_of_events'
+FROM events
+GROUP BY event_type;
+
+-- List all the members who will be attending the conference that have been a member since at least 1995 and are staying at the Marriott Hotel.
+SELECT first_name || ' ' || last_name AS 'member_name'
+FROM vips
+WHERE member_since <= 1995
+AND member_id IN (
+  SELECT member_id
+  FROM reservations
+  WHERE hotel = 2
+);
+
+-- List all of the members who will be staying in hotels, the name and address of the hotel and if they have welcome or dinner RSVPs.
+SELECT v.first_name || ' ' || v.last_name AS 'member_name',
+h.hotel_name,
+h.address,
+CASE
+	WHEN r.welcome_rsvp = 1 THEN 'yes'
+    ELSE 'no'
+END AS 'welcome_rsvp',
+CASE
+	WHEN r.dinner_rsvp = 1 THEN 'yes'
+    ELSE 'no'
+END AS 'dinner_rsvp'
+FROM vips v
+JOIN reservations r
+ON v.member_id = r.member_id
+JOIN hotels h
+ON r.hotel = h.hotel_id;
+
+-- List all of the members, who they will be providing feedback to and the name of the event.
+SELECT v1.first_name || ' ' || v1.last_name AS 'member_giving_feedback',
+v2.first_name || ' ' || v2.last_name AS 'member_receiving_feedback',
+e.event_name AS 'event_name'
+FROM vips v1
+LEFT JOIN vips v2 
+ON v1.provides_feedback_to = v2.member_id
+LEFT JOIN events e 
+ON v2.event = e.event_id;
