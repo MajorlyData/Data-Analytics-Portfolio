@@ -1,0 +1,88 @@
+-- This project will be a deep dive into Data Cleaning and Exploratory Data Analysis using SQLite,
+-- with a focus on showcasing real-world use cases in order to consolidate and identify important data within a dataset.
+-- Part 2 handles performing Exploratory Data Anaylsis, pulling valuable insights from the data and analyzing important metrics.
+
+-- Exploratory Data Analysis --
+
+SELECT MAX(total_laid_off)
+FROM layoffs_staging2
+WHERE total_laid_off <> 'NULL';
+
+SELECT MAX(percentage_laid_off)
+FROM layoffs_staging2
+WHERE percentage_laid_off <> 'NULL';
+
+-- Look at companies that laid off their entire workforce, ordered by total laid off
+SELECT *
+FROM layoffs_staging2
+WHERE percentage_laid_off = 1
+AND total_laid_off <> 'NULL'
+ORDER BY total_laid_off DESC;
+
+-- Look at companies that laid off their entire workforce, ordered by funds raised
+SELECT *
+FROM layoffs_staging2
+WHERE percentage_laid_off = 1
+AND funds_raised_millions <> 'NULL'
+ORDER BY funds_raised_millions DESC;
+
+-- Look at total laid off by company
+SELECT company,
+SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY company
+ORDER BY 2 DESC;
+
+-- Look at total laid off by industry
+SELECT industry,
+SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY industry
+ORDER BY 2 DESC;
+
+-- Look at total laid off by country
+SELECT country,
+SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY country
+ORDER BY 2 DESC;
+
+-- Look at total laid off by year
+SELECT SUBSTR(date, LENGTH(date) - 3),
+SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY SUBSTR(date, LENGTH(date) - 3)
+ORDER BY 2 DESC;
+
+-- Look at average percentage laid off by stage
+SELECT stage,
+ROUND(AVG(percentage_laid_off), 3)
+FROM layoffs_staging2
+GROUP BY stage
+ORDER BY 2 DESC;
+
+-- Look at total laid off by company and year
+SELECT company,
+SUBSTR(date, LENGTH(date) - 3) AS year,
+SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY company, year
+ORDER BY 3 DESC;
+
+-- Rank each company by partitioning over the year and look into the top 5 companies for total laid off by year
+WITH total_laid_off_by_year_CTE AS (
+    SELECT company,
+    SUBSTR(date, LENGTH(date) - 3) AS year,
+    SUM(total_laid_off) AS sum_total_laid_off
+    FROM layoffs_staging2
+    GROUP BY company, year
+),
+company_rank_by_year_CTE AS (
+SELECT *,
+DENSE_RANK() OVER(PARTITION BY year ORDER BY sum_total_laid_off DESC) AS rank_total_laid_off
+FROM total_laid_off_by_year_CTE
+WHERE year <> 'NULL'
+)
+SELECT *
+FROM company_rank_by_year_CTE
+WHERE rank_total_laid_off <= 5;
