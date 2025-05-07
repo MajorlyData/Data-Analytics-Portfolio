@@ -38,13 +38,14 @@ Functionalities: Charts/Graphs, Calculated Fields, Dashboard Creation/Formatting
 # Python
 Skills: Web Scraping, Data Gathering, Data Cleanup, Data Visualization and Analysis
 
-Libraries: Pandas, BeautifulSoup, Numpy, Matplotlib, Requests, CSV
+Libraries: Pandas, BeautifulSoup, Numpy, Matplotlib, Seaborn, Requests, CSV
 
 ## Highlighted Projects - [Full Python Portfolio](https://github.com/MajorlyData/Data-Analytics-Portfolio/tree/main/Python)
 | **Project Name** | **Libraries Used** | **Description** |
 |------------------|-----------------|-----------------------|
 | [IMDB Web Scraping - Top 250 Movies](https://github.com/MajorlyData/Data-Analytics-Portfolio/blob/main/Python/IMDB_Scraping.ipynb) | BeautifulSoup, Requests, CSV | I scraped the top 250 movies from IMDB and gathered important metrics, such as ranking and name of the movie, to format into a csv file for further analysis.
 | [Games Sales Analysis and Visualization](https://github.com/MajorlyData/Data-Analytics-Portfolio/blob/main/Python/Games_Sales_Analysis.ipynb) | Pandas, Matplotlib, Seaborn, Numpy | I performed ETL on a dataset containing video game sales information, in conjunction with analyzing, grouping and visualizing the data to explore important metrics and KPIs.
+| [Data Cleaning](https://github.com/MajorlyData/Data-Analytics-Portfolio/blob/main/Python/Data%20Cleaning%20in%20Pandas.ipynb) and [Exploratory Data Analysis](https://github.com/MajorlyData/Data-Analytics-Portfolio/blob/main/Python/Exploratory%20Data%20Analysis%20in%20Pandas.ipynb) in Pandas | Pandas, Matplotlib, Seaborn | I cleaned a dataset using various Python and Pandas tools, such as dropping columns, fixing NULL and blank values and using string formatting to organize and structure data. I then performed EDA to visualize and quantify important metrics and KPIs, including creating a correlation graph and plotting average population by continent.
 
 # Excel
 Skills: Pivot Tables, Chart Visualization, Dynamic Data Integration, Interactive Dashboard Functionality
